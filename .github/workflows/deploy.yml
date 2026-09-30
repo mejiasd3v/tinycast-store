@@ -39,4 +39,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: jdx/mise-action@v2
       - run: pnpm install --frozen-lockfile
-      - run: pnpm infra:deploy --stage prod --yes --no-input
+      - name: Skip until Cloudflare is configured
+        if: env.CLOUDFLARE_API_TOKEN == '' || env.CLOUDFLARE_ACCOUNT_ID == ''
+        run: echo "::notice::Set the CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID repository secrets to enable deploys."
+      - name: Deploy
+        if: env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != ''
+        run: pnpm infra:deploy --stage prod --yes --no-input
