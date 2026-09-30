@@ -1,0 +1,30 @@
+{
+  "name": "tinycast-store-repo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "tinycast.store: discover and install Tinycast extensions from GitHub",
+  "license": "MIT",
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @tinycast-store/web dev",
+    "build": "pnpm registry:generate && pnpm extension:package && pnpm --filter @tinycast-store/web build",
+    "registry:generate": "pnpm --filter @tinycast-store/registry generate",
+    "extension:package": "node scripts/package-extension.mjs",
+    "check": "pnpm typecheck && pnpm -r typecheck && pnpm -r test",
+    "infra:dev": "alchemy dev",
+    "infra:deploy": "alchemy deploy",
+    "infra:destroy": "alchemy destroy",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@effect/platform-node": "4.0.0-rc.115",
+    "alchemy": "2.0.0-beta.79",
+    "effect": "4.0.0-rc.115",
+    "typescript": "^5.9.0",
+    "@types/node": "^24.0.0"
+  }
+}

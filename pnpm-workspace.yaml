@@ -1,0 +1,14 @@
+packages:
+  - apps/*
+  - packages/*
+
+onlyBuiltDependencies:
+  - esbuild
+  - workerd
+
+# alchemy 2.0.0-beta.79 imports `effect/unstable/*`, which effect rc.118 moved. Its peer range
+# (>=rc.115) is wider than what works, so the whole Effect family is pinned to one version.
+overrides:
+  effect: 4.0.0-rc.115
+  "@effect/platform-node": 4.0.0-rc.115
+  "@effect/platform-node-shared": 4.0.0-rc.115

@@ -1,0 +1,23 @@
+[tools]
+node = "24"
+pnpm = "10"
+
+[tasks.install]
+description = "Install workspace dependencies"
+run = "pnpm install"
+
+[tasks.dev]
+description = "Run the website locally (Vite)"
+run = "pnpm --filter @tinycast-store/web dev"
+
+[tasks.registry]
+description = "Regenerate the extension index from GitHub topics"
+run = "pnpm registry:generate"
+
+[tasks.check]
+description = "Typecheck, lint and test everything"
+run = "pnpm check"
+
+[tasks.deploy]
+description = "Build and deploy to Cloudflare with Alchemy"
+run = "pnpm infra:deploy"

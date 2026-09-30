@@ -1,0 +1,12 @@
+node_modules
+dist
+build
+.alchemy
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+.DS_Store
+# generated at build time by `pnpm registry:generate`
+apps/web/public/registry.json
+apps/web/public/tinycast-store.zip

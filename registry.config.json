@@ -1,0 +1,5 @@
+{
+  "$comment": "Curation for tinycast.store. `include` lists repos to index even without a tinycast topic; `exclude` hides repos (spam, abuse, takedowns). Format: \"owner/repo\".",
+  "include": [],
+  "exclude": []
+}

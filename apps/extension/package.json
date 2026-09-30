@@ -1,0 +1,63 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "tinycast-store",
+  "title": "Tinycast Store",
+  "description": "Find and install Tinycast extensions published on GitHub, straight from the launcher.",
+  "icon": "icon.png",
+  "author": "tinycast-store",
+  "categories": [
+    "Developer Tools"
+  ],
+  "license": "MIT",
+  "platforms": [
+    "macOS"
+  ],
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "commands": [
+    {
+      "name": "browse",
+      "title": "Browse Extensions",
+      "subtitle": "Tinycast Store",
+      "description": "Search extensions tagged tinycast-extension on GitHub and install them.",
+      "mode": "view"
+    },
+    {
+      "name": "install",
+      "title": "Install Extension",
+      "subtitle": "Tinycast Store",
+      "description": "Install a Tinycast extension from a GitHub repository. Also runs from tinycast.store links.",
+      "mode": "no-view",
+      "arguments": [
+        {
+          "name": "repo",
+          "type": "text",
+          "placeholder": "owner/repo or GitHub URL",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "uninstall",
+      "title": "Uninstall Extension",
+      "subtitle": "Tinycast Store",
+      "description": "Remove an extension you installed from the Tinycast Store.",
+      "mode": "view"
+    }
+  ],
+  "scripts": {
+    "build": "ray build -e dist -o dist",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "node --test 'test/**/*.test.ts'"
+  },
+  "dependencies": {
+    "@raycast/api": "^2.5.3",
+    "@tinycast-store/registry": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.17",
+    "@types/react": "19.0.10",
+    "typescript": "^5.9.0"
+  }
+}
